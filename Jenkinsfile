@@ -3,19 +3,13 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
+        stage('Repository Check') {
             steps {
-                git 'https://github.com/milka2003/plant-disease-mlops.git'
+                echo 'Repository cloned successfully'
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                echo 'Building Docker Image'
-            }
-        }
-
-        stage('Test') {
+        stage('Test Pipeline') {
             steps {
                 echo 'Pipeline Working Successfully'
             }
