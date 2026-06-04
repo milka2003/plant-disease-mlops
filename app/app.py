@@ -1,9 +1,8 @@
-
 import os
 from io import BytesIO
 
 import numpy as np
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from PIL import Image
 from tensorflow.keras.models import load_model
 
@@ -30,7 +29,12 @@ model = load_model(MODEL_PATH)
 IMAGE_SIZE = (64, 64)
 
 
-@app.get("/")
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+
+@app.get("/health")
 def health():
     return jsonify({
         "message": "Plant Disease Detection API is running"
@@ -92,4 +96,3 @@ if __name__ == "__main__":
         port=5000,
         debug=True
     )
-
