@@ -20,6 +20,7 @@ spec:
       containers:
       - name: plant-disease-api
         image: plant-disease-api:latest
+        imagePullPolicy: Never
 
         ports:
         - containerPort: 5000
